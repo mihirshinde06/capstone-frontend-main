@@ -2,7 +2,6 @@ import React from "react";
 import { Grid, Typography, Rating, IconButton, Tooltip } from "@mui/material";
 import zoomIcon from "../../../assets/images/zoom-icon.svg";
 import shoppingCartColorIcon from "../../../assets/images/shopping-cart-color-icon.svg";
-import cancelIcon from "../../../assets/images/cancel-icon.svg";
 import { IProductsListItemProps } from "./types";
 import { formatPrice } from "../../../utils/utils";
 import ProductListItemDetails from "./ProductListItemDetails";

@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from "react";
-import {
-  Grid,
-  Typography,
-  IconButton,
-  Badge,
-  Divider,
-  Button,
-} from "@mui/material";
+import { useEffect, useState } from "react";
+import { Grid, Typography, IconButton, Divider, Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import cancelIcon from "../../../assets/images/cancel-icon.svg";
 import { ICartItemsTableRowProps } from "../types";
 import { formatPrice } from "../../../utils/utils";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";

@@ -1,15 +1,5 @@
-import React, { useState } from "react";
-import {
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Typography,
-  Box,
-  useMediaQuery,
-} from "@mui/material";
+import { useState } from "react";
+import { Grid, Typography, Box, useMediaQuery } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Filters from "./Filters/Filters";
 import ProductsList from "./ProductsList/ProductsList";
@@ -18,18 +8,9 @@ import {
   useGetAllProductsByCategoryQuery,
   useGetAllProductsQuery,
 } from "../../react-query/queries/products/products";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { changeSortBy } from "../../redux/slices/filtersSlice";
+import { useAppSelector } from "../../redux/hooks";
 
 const Products = () => {
-  const sort = useAppSelector((state) => state.filters.sortBy);
-
-  const dispatch = useAppDispatch();
-
-  const handleChange = (event: SelectChangeEvent) => {
-    dispatch(changeSortBy(event.target.value));
-  };
-
   const category = useAppSelector((state) => state.filters.category);
 
   const { isLoading, error } = useGetAllProductsQuery();
