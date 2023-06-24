@@ -2,11 +2,16 @@
   "name": "capstone-frontend-client",
   "version": "0.1.0",
   "private": true,
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.1",
     "@mui/material": "^5.6.1",
+    "@mui/x-date-pickers": "^6.9.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -17,6 +22,7 @@
     "@types/react-dom": "^18.0.1",
     "axios": "^0.27.2",
     "credit-card-type": "^9.1.0",
+    "dayjs": "^1.11.8",
     "jwt-decode": "^3.1.2",
     "notistack": "^2.0.5",
     "react": "^18.0.0",
@@ -52,6 +58,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }

@@ -1,5 +1,4 @@
 import { Box, useMediaQuery } from "@mui/material";
-import React from "react";
 import Loader from "../../components/Loader/Loader";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
@@ -9,6 +8,7 @@ import {
 } from "../../react-query/queries/user/user";
 import OrderHistory from "./OrderHistory/OrderHistory";
 import PersonalDetails from "./PersonalDetails/PersonalDetails";
+import Appointments from "./Appointments/Appointments";
 
 const MyAccount = () => {
   const { token } = useIsUserLoggedIn();
@@ -37,6 +37,7 @@ const MyAccount = () => {
               refetch={refetchUserDetails}
             />
             <OrderHistory orderHistoryData={orderHistoryData} />
+            <Appointments />
           </>
         )}
       </Box>
