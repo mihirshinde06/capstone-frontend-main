@@ -43,7 +43,7 @@ const Price = () => {
               }}
             />
           }
-          label={`Under ${formatPrice("500")}`}
+          label={`Under ${formatPrice("5000")}`}
         />
         <FormControlLabel
           sx={{ color: "#7E81A2" }}
@@ -60,7 +60,7 @@ const Price = () => {
               }}
             />
           }
-          label={`${formatPrice("500")} - ${formatPrice("1000")}`}
+          label={`${formatPrice("5000")} - ${formatPrice("10000")}`}
         />
         <FormControlLabel
           sx={{ color: "#7E81A2" }}
@@ -77,7 +77,7 @@ const Price = () => {
               }}
             />
           }
-          label={`${formatPrice("1000")} - ${formatPrice("2000")}`}
+          label={`${formatPrice("10000")} - ${formatPrice("20000")}`}
         />
         <FormControlLabel
           sx={{ color: "#7E81A2" }}
@@ -94,7 +94,7 @@ const Price = () => {
               }}
             />
           }
-          label={`Above ${formatPrice("2000")}`}
+          label={`Above ${formatPrice("20000")}`}
         />
       </FormGroup>
     </>

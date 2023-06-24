@@ -127,10 +127,10 @@ const CheckOutForm = ({
           name="deliveryMethod"
         >
           <MenuItem value={"standard"}>
-            Standard - {formatPrice("9.99")}
+            Standard - {formatPrice("99.99")}
           </MenuItem>
           <MenuItem value={"express"}>
-            Express - {formatPrice("19.99")}
+            Express - {formatPrice("199.99")}
           </MenuItem>
         </Select>
       </FormControl>

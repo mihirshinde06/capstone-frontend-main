@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -22,7 +22,6 @@ import MyAccount from "./pages/MyAccount/MyAccount";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { queryClient } from "./react-query/config";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
-import ChatBot from "./pages/chatBot/ChatBot";
 
 function App() {
   const { isExpired } = useJWTExpiry();
@@ -45,7 +44,6 @@ function App() {
           >
             <ScrollToTop />
             <Navbar />
-            <ChatBot />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route

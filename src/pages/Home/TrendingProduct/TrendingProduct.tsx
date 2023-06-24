@@ -56,7 +56,7 @@ const TrendingProduct = () => {
           B&B Italian Sofa
         </Typography>
         <Typography sx={{ color: "#1A0B5B" }} fontSize={14}>
-          {formatPrice("499")}
+          {formatPrice("49999")}
         </Typography>
       </Grid>
     </Grid>
