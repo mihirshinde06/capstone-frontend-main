@@ -1,17 +1,20 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import {
+  GET_ALL_APPOINTMENTS_QUERY_KEY,
   GET_ORDER_BY_ID_QUERY_KEY,
   GET_ORDER_HISTORY_QUERY_KEY,
   GET_USER_DETAILS_QUERY_KEY,
 } from "../../../utils/keys/keys";
 import {
+  GET_ALL_APPOINTMENTS_URL,
   GET_ORDER_BY_ID_URL,
   GET_ORDER_HISTORY_URL,
   GET_USER_DETAILS_URL,
 } from "../../../utils/paths/paths";
 import { commonQueryConfig } from "../utils";
 import {
+  GetAppointmentsHistoryResponse,
   GetOrderHistoryResponse,
   GetUserDetailsResponse,
   OrderHistoryItem,
@@ -55,6 +58,23 @@ export const useGetOrderByIdQuery = (
   };
 
   return useQuery(GET_ORDER_BY_ID_QUERY_KEY, apiQuery, {
+    ...commonQueryConfig,
+    enabled,
+  });
+};
+
+export const useGetAppointmentsHistoryQuery = (
+  token: string,
+  enabled: boolean
+) => {
+  const apiQuery = async (): Promise<GetAppointmentsHistoryResponse> => {
+    const { data } = await axios.get(GET_ALL_APPOINTMENTS_URL, {
+      headers: { "auth-token": token },
+    });
+    return data;
+  };
+
+  return useQuery(GET_ALL_APPOINTMENTS_QUERY_KEY, apiQuery, {
     ...commonQueryConfig,
     enabled,
   });

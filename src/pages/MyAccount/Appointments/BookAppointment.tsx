@@ -10,9 +10,17 @@ import {
 import { IBookAppointmentProps } from "./types";
 import BasicDateTimePicker from "./BasicDateTimePicker";
 import { useState } from "react";
+import { useBookAnAppointmentMutation } from "../../../react-query/mutations/appointments/appointments";
+import useIsUserLoggedIn from "../../../hooks/useIsUserLoggedIn";
+import { useSnackbar } from "notistack";
+import { useGetAppointmentsHistoryQuery } from "../../../react-query/queries/user/user";
 
 const BookAppointment = ({ open, handleClose }: IBookAppointmentProps) => {
-  const [appointmentFormData, setApppointmentFormData] = useState({
+  const { token } = useIsUserLoggedIn();
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const [appointmentFormData, setAppointmentFormData] = useState({
     name: "",
     address: "",
     mobileNumber: "",
@@ -20,22 +28,52 @@ const BookAppointment = ({ open, handleClose }: IBookAppointmentProps) => {
 
   const [dateAndTime, setDateAndTime] = useState<string | null>(null);
 
+  const { mutate, isLoading } = useBookAnAppointmentMutation(token || "");
+
+  const { refetch } = useGetAppointmentsHistoryQuery(token || "", true);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setApppointmentFormData({
+    setAppointmentFormData({
       ...appointmentFormData,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = () => {
-    setApppointmentFormData({
-      name: "",
-      address: "",
-      mobileNumber: "",
-    });
-    handleClose();
+    mutate(
+      {
+        name: appointmentFormData.name,
+        address: appointmentFormData.address,
+        dateAndTime: dateAndTime || "",
+        mobileNumber: appointmentFormData.mobileNumber,
+      },
+      {
+        onSuccess: () => {
+          enqueueSnackbar("Your appointment has been booked.", {
+            variant: "success",
+          });
+          setAppointmentFormData({
+            name: "",
+            address: "",
+            mobileNumber: "",
+          });
+          handleClose();
+          refetch();
+        },
+        onError: (error: any) => {
+          enqueueSnackbar(
+            error?.response?.data?.msg ||
+              error?.response?.data?.errors[0]?.msg ||
+              "An error occurred. Please try again.",
+            {
+              variant: "error",
+            }
+          );
+        },
+      }
+    );
   };
 
   return (
@@ -99,6 +137,7 @@ const BookAppointment = ({ open, handleClose }: IBookAppointmentProps) => {
             marginBottom: "1rem",
           }}
           onClick={handleClose}
+          disabled={isLoading}
         >
           Cancel
         </Button>
@@ -114,6 +153,7 @@ const BookAppointment = ({ open, handleClose }: IBookAppointmentProps) => {
             marginRight: "1rem",
           }}
           onClick={handleSubmit}
+          disabled={isLoading}
         >
           Book
         </Button>
