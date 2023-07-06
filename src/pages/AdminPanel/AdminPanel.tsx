@@ -4,12 +4,14 @@ import useRole from "../../hooks/useRole";
 import { Navigate } from "react-router-dom";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 import {
+  useGetAllProductsAdminQuery,
   useGetAppointmentsHistoryAdminQuery,
   useGetOrderHistoryAdminQuery,
 } from "../../react-query/queries/admin/admin";
 import Loader from "../../components/Loader/Loader";
 import OrderHistory from "./OrderHistory/OrderHistory";
 import Appointments from "./Appointments/Appointments";
+import Products from "./Products/Products";
 
 const AdminPanel = () => {
   const { token } = useIsUserLoggedIn();
@@ -23,6 +25,8 @@ const AdminPanel = () => {
     isLoading: isAppointmentsHistoryLoading,
     data: appointmentsHistoryData,
   } = useGetAppointmentsHistoryAdminQuery(token || "", true);
+  const { isLoading: isProductsLoading, data: productsData } =
+    useGetAllProductsAdminQuery(token || "");
 
   const { role } = useRole();
 
@@ -34,12 +38,15 @@ const AdminPanel = () => {
     <>
       <PageHeader title={"Admin Panel"} />;
       <Box padding={matches || matchesTablets ? "2rem 5rem" : "2rem 15rem"}>
-        {isOrderHistoryLoading || isAppointmentsHistoryLoading ? (
+        {isOrderHistoryLoading ||
+        isAppointmentsHistoryLoading ||
+        isProductsLoading ? (
           <Loader />
         ) : (
           <>
             <OrderHistory orderHistoryData={orderHistoryData} />
             <Appointments appointmentsHistoryData={appointmentsHistoryData} />
+            <Products products={productsData} />
           </>
         )}
       </Box>

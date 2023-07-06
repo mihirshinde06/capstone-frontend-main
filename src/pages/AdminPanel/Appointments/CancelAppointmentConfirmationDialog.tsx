@@ -72,6 +72,7 @@ const CancelAppointmentConfirmationDialog = ({
               marginBottom: "1rem",
             }}
             onClick={handleClose}
+            disabled={cancelAppointment.isLoading}
           >
             No
           </Button>
@@ -86,6 +87,7 @@ const CancelAppointmentConfirmationDialog = ({
               marginBottom: "1rem",
             }}
             onClick={handleCancelAppointment}
+            disabled={cancelAppointment.isLoading}
           >
             Yes
           </Button>

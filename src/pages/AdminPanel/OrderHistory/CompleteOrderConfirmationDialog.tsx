@@ -69,6 +69,7 @@ const CompleteOrderConfirmationDialog = ({
               marginBottom: "1rem",
             }}
             onClick={handleClose}
+            disabled={completeOrder.isLoading}
           >
             No
           </Button>
@@ -83,6 +84,7 @@ const CompleteOrderConfirmationDialog = ({
               marginBottom: "1rem",
             }}
             onClick={handleCompleteOrder}
+            disabled={completeOrder.isLoading}
           >
             Yes
           </Button>

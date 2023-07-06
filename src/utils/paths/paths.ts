@@ -55,3 +55,10 @@ export const CANCEL_APPOINTMENT_ADMIN_URL =
   BASE_URL_WITHOUT_USER + "administrator/appointments";
 export const COMPLETE_APPOINTMENT_ADMIN_URL =
   BASE_URL_WITHOUT_USER + "administrator/appointments/complete";
+
+export const GET_ALL_PRODUCTS_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/products/all";
+export const REMOVE_PRODUCT_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/products";
+export const ADD_PRODUCT_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/products";

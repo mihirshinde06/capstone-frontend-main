@@ -69,6 +69,7 @@ const CancelOrderConfirmationDialog = ({
               marginBottom: "1rem",
             }}
             onClick={handleClose}
+            disabled={cancelOrder.isLoading}
           >
             No
           </Button>
@@ -83,6 +84,7 @@ const CancelOrderConfirmationDialog = ({
               marginBottom: "1rem",
             }}
             onClick={handleCancelOrder}
+            disabled={cancelOrder.isLoading}
           >
             Yes
           </Button>

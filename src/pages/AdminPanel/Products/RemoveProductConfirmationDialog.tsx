@@ -9,28 +9,25 @@ import {
 import { useSnackbar } from "notistack";
 import useIsUserLoggedIn from "../../../hooks/useIsUserLoggedIn";
 import { formatOrderId } from "../../../utils/utils";
-import { ICompleteAppointmentConfirmationDialogProps } from "./types";
-import { useGetAppointmentsHistoryAdminQuery } from "../../../react-query/queries/admin/admin";
-import { useCompleteAppointmentAdminMutation } from "../../../react-query/mutations/appointments/appointments";
+import { IRemoveProductConfirmationDialogProps } from "./types";
+import { useGetAllProductsAdminQuery } from "../../../react-query/queries/admin/admin";
+import { useRemoveProductAdminMutation } from "../../../react-query/mutations/products/products";
 
-const CompleteAppointmentConfirmationDialog = ({
+const RemoveProductConfirmationDialog = ({
   open,
   handleClose,
-  appointmentId,
-}: ICompleteAppointmentConfirmationDialogProps) => {
+  productId,
+}: IRemoveProductConfirmationDialogProps) => {
   const { token } = useIsUserLoggedIn();
 
-  const { refetch } = useGetAppointmentsHistoryAdminQuery(token || "", true);
+  const { refetch } = useGetAllProductsAdminQuery(token || "");
 
-  const completeAppointment = useCompleteAppointmentAdminMutation(
-    appointmentId,
-    token || ""
-  );
+  const removeProduct = useRemoveProductAdminMutation(productId, token || "");
 
   const { enqueueSnackbar } = useSnackbar();
 
-  const handleCompleteAppointment = () => {
-    completeAppointment.mutate(undefined, {
+  const handleRemoveProduct = () => {
+    removeProduct.mutate(undefined, {
       onSuccess: (data) => {
         enqueueSnackbar(data.msg, {
           variant: "success",
@@ -56,8 +53,8 @@ const CompleteAppointmentConfirmationDialog = ({
       <Box sx={{ padding: "1rem", color: "#1D3178" }}>
         <DialogTitle>
           <Typography fontWeight={700} fontSize={18} mb={1}>
-            You are about to complete the following appointment -{" "}
-            {formatOrderId(appointmentId || "")}. Are you sure?
+            You are about to remove the following product -{" "}
+            {formatOrderId(productId || "")}. Are you sure?
           </Typography>
         </DialogTitle>
         <DialogActions>
@@ -72,7 +69,7 @@ const CompleteAppointmentConfirmationDialog = ({
               marginBottom: "1rem",
             }}
             onClick={handleClose}
-            disabled={completeAppointment.isLoading}
+            disabled={removeProduct.isLoading}
           >
             No
           </Button>
@@ -86,8 +83,8 @@ const CompleteAppointmentConfirmationDialog = ({
               padding: "0.7rem",
               marginBottom: "1rem",
             }}
-            onClick={handleCompleteAppointment}
-            disabled={completeAppointment.isLoading}
+            onClick={handleRemoveProduct}
+            disabled={removeProduct.isLoading}
           >
             Yes
           </Button>
@@ -97,4 +94,4 @@ const CompleteAppointmentConfirmationDialog = ({
   );
 };
 
-export default CompleteAppointmentConfirmationDialog;
+export default RemoveProductConfirmationDialog;
