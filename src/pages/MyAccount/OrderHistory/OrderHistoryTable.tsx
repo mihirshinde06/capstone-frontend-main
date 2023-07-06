@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import React from "react";
+
 import OrderHistoryTableHeader from "./OrderHistoryTableHeader";
 import OrderHistoryTableRow from "./OrderHistoryTableRow";
 import { IOrderHistoryTableProps } from "./types";

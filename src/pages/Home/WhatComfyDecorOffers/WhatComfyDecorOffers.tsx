@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Box, Grid } from "@mui/material";
 import truckIcon from "../../../assets/images/truck-icon.svg";
 import cashbackIcon from "../../../assets/images/cashback-icon.svg";

@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import ContactForm from "./ContactForm";

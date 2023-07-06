@@ -9,7 +9,7 @@ import {
   Box,
   Divider,
 } from "@mui/material";
-import React from "react";
+
 import Loader from "../../../components/Loader/Loader";
 import useIsUserLoggedIn from "../../../hooks/useIsUserLoggedIn";
 import { useGetOrderByIdQuery } from "../../../react-query/queries/user/user";

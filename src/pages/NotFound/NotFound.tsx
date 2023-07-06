@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import pageNotFoundErrorImg from "../../assets/images/404page.svg";
 import Brands from "../Home/Brands/Brands";

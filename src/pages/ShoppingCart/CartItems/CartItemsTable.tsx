@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useAppSelector } from "../../../redux/hooks";
 import CartItemsTableFooter from "./CartItemsTableFooter";
