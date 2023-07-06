@@ -18,6 +18,11 @@ export const GET_PRODUCT_BY_ID_URL = BASE_URL + "products/product/";
 export const PLACE_AN_ORDER_URL = BASE_URL + "orders";
 export const CANCEL_AN_ORDER_URL = BASE_URL + "orders";
 
+export const CANCEL_AN_ORDER_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/orders/cancel";
+export const COMPLETE_AN_ORDER_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/orders/complete";
+
 export const SEND_NEWSLETTER_SIGNUP_EMAIL_USER_URL =
   BASE_URL_WITHOUT_USER + "emails/newsletter-signup";
 export const SEND_PASSWORD_RESET_EMAIL_USER_URL =
@@ -34,6 +39,11 @@ export const EDIT_PERSONAL_DETAILS_URL = BASE_URL + "edit";
 
 export const GET_ORDER_HISTORY_URL = BASE_URL + "orders/all";
 export const GET_ORDER_BY_ID_URL = BASE_URL + "orders";
+
+export const GET_ORDER_HISTORY_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/orders/all";
+export const GET_ORDER_BY_ID_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/orders";
 
 export const BOOK_APPOINTMENT_URL = BASE_URL + "appointments";
 export const GET_ALL_APPOINTMENTS_URL = BASE_URL + "appointments/all";
