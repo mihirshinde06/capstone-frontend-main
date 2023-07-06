@@ -22,6 +22,8 @@ import MyAccount from "./pages/MyAccount/MyAccount";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { queryClient } from "./react-query/config";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import AdminLogin from "./pages/AdminLogin/AdminLogin";
+import AdminPanel from "./pages/AdminPanel/AdminPanel";
 
 function App() {
   const { isExpired } = useJWTExpiry();
@@ -55,6 +57,7 @@ function App() {
                 }
               />
               <Route path="/login" element={<UserLogin />} />
+              <Route path="/admin-login" element={<AdminLogin />} />
               <Route path="/register" element={<UserRegister />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
@@ -78,6 +81,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <MyAccount />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/admin-panel"
+                element={
+                  <PrivateRoute>
+                    <AdminPanel />
                   </PrivateRoute>
                 }
               />

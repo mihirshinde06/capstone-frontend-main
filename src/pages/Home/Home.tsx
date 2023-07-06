@@ -1,4 +1,3 @@
-import React from "react";
 import CarouselHero from "./Carousel/CarouselHero";
 import Brands from "./Brands/Brands";
 import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";

@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, useMediaQuery } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import CartItemsTable from "./CartItems/CartItemsTable";

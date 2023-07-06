@@ -24,7 +24,7 @@ const CartPaymentSummary = () => {
   const navigate = useNavigate();
 
   const handleCheckout = () => {
-    isLoggedIn
+    isLoggedIn === "true"
       ? navigate("/checkout")
       : enqueueSnackbar("Please login to place an order!", {
           variant: "error",
