@@ -8,3 +8,4 @@ export const GET_ORDER_HISTORY_QUERY_KEY = "get-order-history";
 export const GET_ORDER_HISTORY_ADMIN_QUERY_KEY = "get-order-history-admin";
 export const GET_ORDER_BY_ID_QUERY_KEY = "get-order-by-id";
 export const GET_ALL_APPOINTMENTS_QUERY_KEY = "appointments-list";
+export const GET_ALL_APPOINTMENTS_ADMIN_QUERY_KEY = "appointments-list-admin";

@@ -2,9 +2,15 @@ import axios from "axios";
 import { useMutation } from "react-query";
 import {
   BOOK_APPOINTMENT_URL,
+  CANCEL_APPOINTMENT_ADMIN_URL,
   CANCEL_APPOINTMENT_URL,
+  COMPLETE_APPOINTMENT_ADMIN_URL,
 } from "../../../utils/paths/paths";
-import { BookAnAppointmentPayload, CancelAppointmentResponse } from "./types";
+import {
+  BookAnAppointmentPayload,
+  CancelAppointmentResponse,
+  CompleteAppointmentResponse,
+} from "./types";
 
 export const useBookAnAppointmentMutation = (token: string) => {
   return useMutation(async (formData: BookAnAppointmentPayload) => {
@@ -21,6 +27,38 @@ export const useCancelAppointmentMutation = (
   return useMutation(async () => {
     const { data } = await axios.patch<CancelAppointmentResponse>(
       `${CANCEL_APPOINTMENT_URL}/${appointmentId}`,
+      null,
+      {
+        headers: { "auth-token": token },
+      }
+    );
+    return data;
+  });
+};
+
+export const useCancelAppointmentAdminMutation = (
+  appointmentId: string,
+  token: string
+) => {
+  return useMutation(async () => {
+    const { data } = await axios.patch<CancelAppointmentResponse>(
+      `${CANCEL_APPOINTMENT_ADMIN_URL}/${appointmentId}`,
+      null,
+      {
+        headers: { "auth-token": token },
+      }
+    );
+    return data;
+  });
+};
+
+export const useCompleteAppointmentAdminMutation = (
+  appointmentId: string,
+  token: string
+) => {
+  return useMutation(async () => {
+    const { data } = await axios.patch<CompleteAppointmentResponse>(
+      `${COMPLETE_APPOINTMENT_ADMIN_URL}/${appointmentId}`,
       null,
       {
         headers: { "auth-token": token },

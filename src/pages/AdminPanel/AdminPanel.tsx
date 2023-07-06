@@ -3,9 +3,13 @@ import PageHeader from "../../components/PageHeader/PageHeader";
 import useRole from "../../hooks/useRole";
 import { Navigate } from "react-router-dom";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
-import { useGetOrderHistoryAdminQuery } from "../../react-query/queries/admin/admin";
+import {
+  useGetAppointmentsHistoryAdminQuery,
+  useGetOrderHistoryAdminQuery,
+} from "../../react-query/queries/admin/admin";
 import Loader from "../../components/Loader/Loader";
 import OrderHistory from "./OrderHistory/OrderHistory";
+import Appointments from "./Appointments/Appointments";
 
 const AdminPanel = () => {
   const { token } = useIsUserLoggedIn();
@@ -15,6 +19,10 @@ const AdminPanel = () => {
 
   const { isLoading: isOrderHistoryLoading, data: orderHistoryData } =
     useGetOrderHistoryAdminQuery(token || "", true);
+  const {
+    isLoading: isAppointmentsHistoryLoading,
+    data: appointmentsHistoryData,
+  } = useGetAppointmentsHistoryAdminQuery(token || "", true);
 
   const { role } = useRole();
 
@@ -26,11 +34,12 @@ const AdminPanel = () => {
     <>
       <PageHeader title={"Admin Panel"} />;
       <Box padding={matches || matchesTablets ? "2rem 5rem" : "2rem 15rem"}>
-        {isOrderHistoryLoading ? (
+        {isOrderHistoryLoading || isAppointmentsHistoryLoading ? (
           <Loader />
         ) : (
           <>
             <OrderHistory orderHistoryData={orderHistoryData} />
+            <Appointments appointmentsHistoryData={appointmentsHistoryData} />
           </>
         )}
       </Box>

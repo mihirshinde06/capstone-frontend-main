@@ -8,3 +8,7 @@ export interface BookAnAppointmentPayload {
 export interface CancelAppointmentResponse {
   msg: string;
 }
+
+export interface CompleteAppointmentResponse {
+  msg: string;
+}

@@ -48,3 +48,10 @@ export const GET_ORDER_BY_ID_ADMIN_URL =
 export const BOOK_APPOINTMENT_URL = BASE_URL + "appointments";
 export const GET_ALL_APPOINTMENTS_URL = BASE_URL + "appointments/all";
 export const CANCEL_APPOINTMENT_URL = BASE_URL + "appointments";
+
+export const GET_ALL_APPOINTMENTS_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/appointments/all";
+export const CANCEL_APPOINTMENT_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/appointments";
+export const COMPLETE_APPOINTMENT_ADMIN_URL =
+  BASE_URL_WITHOUT_USER + "administrator/appointments/complete";
