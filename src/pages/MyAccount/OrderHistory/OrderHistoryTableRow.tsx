@@ -4,8 +4,6 @@ import { formatOrderId } from "../../../utils/utils";
 import CancelOrderConfirmationDialog from "./CancelOrderConfirmationDialog";
 import OrderDetailsDialog from "./OrderDetailsDialog";
 import { IOrderHistoryTableRowProps } from "./types";
-import Invoice from "./Invoice/Invoice";
-import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const OrderHistoryTableRow = ({ orderDetails }: IOrderHistoryTableRowProps) => {
   const [openOrderDetails, setOpenOrderDetails] = useState(false);
