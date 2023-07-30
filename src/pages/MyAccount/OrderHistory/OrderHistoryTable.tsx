@@ -10,7 +10,7 @@ const OrderHistoryTable = ({ orderHistoryData }: IOrderHistoryTableProps) => {
       <OrderHistoryTableHeader />
       {orderHistoryData && orderHistoryData?.length > 0 ? (
         orderHistoryData?.map((order) => (
-          <OrderHistoryTableRow orderDetails={order} />
+          <OrderHistoryTableRow orderDetails={order} key={order._id} />
         ))
       ) : (
         <Typography fontWeight={700} mb={1} sx={{ color: "#1D3178" }}>

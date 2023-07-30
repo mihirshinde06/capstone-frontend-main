@@ -9,12 +9,13 @@ import {
   Box,
   Divider,
 } from "@mui/material";
-import React from "react";
 import Loader from "../../../components/Loader/Loader";
 import useIsUserLoggedIn from "../../../hooks/useIsUserLoggedIn";
 import { useGetOrderByIdQuery } from "../../../react-query/queries/user/user";
 import { formatOrderId, formatPrice } from "../../../utils/utils";
 import { IOrderDetailsDialogProps } from "./types";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import Invoice from "./Invoice/Invoice";
 
 const OrderDetailsDialog = ({
   open,
@@ -99,7 +100,7 @@ const OrderDetailsDialog = ({
               </Grid>
             </Grid>
             {data?.orderItems.map((item, index) => (
-              <Grid container>
+              <Grid container key={`dialog-details-order-cart-item-${index}`}>
                 <Grid item sm={2}>
                   <Typography>{index + 1}.</Typography>
                 </Grid>
@@ -130,6 +131,25 @@ const OrderDetailsDialog = ({
             <Divider sx={{ marginBottom: "1rem" }} />
           </DialogContent>
           <DialogActions>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "0",
+                textTransform: "none",
+                background: "#19D16F",
+                ":hover": { background: "#19D16F" },
+                padding: "0.7rem",
+                marginBottom: "1rem",
+              }}
+              disabled={isLoading}
+            >
+              <PDFDownloadLink
+                document={<Invoice orderDetails={data} />}
+                fileName={`Invoice ${formatOrderId(data?._id || "")}`}
+              >
+                Invoice
+              </PDFDownloadLink>
+            </Button>
             <Button
               variant="contained"
               sx={{
