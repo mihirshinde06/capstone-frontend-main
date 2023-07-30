@@ -1,8 +1,10 @@
 import { Box, Typography, Grid, Button } from "@mui/material";
 import { useState } from "react";
 import BookAppointment from "./BookAppointment";
+import { IAppointmentsProps } from "./types";
+import AppointmentsHistoryTable from "./AppointmentsHistoryTable";
 
-const Appointments = () => {
+const Appointments = ({ appointmentsHistoryData }: IAppointmentsProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -40,6 +42,17 @@ const Appointments = () => {
       {open && (
         <BookAppointment open={open} handleClose={() => setOpen(false)} />
       )}
+      <Box
+        sx={{
+          borderRadius: ".188rem",
+          background: "#F4F4FC",
+          padding: "1.5rem 2rem",
+        }}
+      >
+        <AppointmentsHistoryTable
+          appointmentsHistoryData={appointmentsHistoryData}
+        />
+      </Box>
     </Box>
   );
 };

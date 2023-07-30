@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Slide,
   Dialog,
@@ -19,6 +18,7 @@ import {
   removeItemFromCart,
   addItemToCart,
 } from "../../../redux/slices/shoppingCartSlice";
+import React from "react";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {

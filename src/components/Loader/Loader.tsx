@@ -1,4 +1,3 @@
-import React from "react";
 import { CircularProgress, CircularProgressProps, Box } from "@mui/material";
 
 const Loader = (props: CircularProgressProps) => {

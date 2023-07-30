@@ -39,3 +39,7 @@ export interface PlaceAnOrderResponse {
 export interface CancelAnOrderResponse {
   msg: string;
 }
+
+export interface CompleteAnOrderResponse {
+  msg: string;
+}

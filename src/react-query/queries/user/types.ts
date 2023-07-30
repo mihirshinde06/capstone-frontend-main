@@ -45,3 +45,16 @@ export interface ItemInCart {
   category: string;
   __v: number;
 }
+
+export interface Appointment {
+  _id: string;
+  name: string;
+  address: string;
+  mobileNumber: number;
+  dateAndTime: string;
+  status: string;
+  userId: string;
+  __v: number;
+}
+
+export type GetAppointmentsHistoryResponse = Appointment[];

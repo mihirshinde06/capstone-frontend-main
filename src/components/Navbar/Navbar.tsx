@@ -1,10 +1,10 @@
-import React from "react";
 import {
   Grid,
   Typography,
   IconButton,
   Badge,
   useMediaQuery,
+  Tooltip,
 } from "@mui/material";
 import messageIcon from "../../assets/images/message-icon.svg";
 import phoneIcon from "../../assets/images/phone-icon.svg";
@@ -13,6 +13,7 @@ import shoppingCartIcon from "../../assets/images/shopping-cart-icon.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
+import useRole from "../../hooks/useRole";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -28,6 +29,8 @@ const Navbar = () => {
 
   const matches = useMediaQuery("(max-width:1280px)");
   const matchesTablets = useMediaQuery("(max-width:1024px)");
+
+  const { role } = useRole();
 
   return (
     <>
@@ -74,7 +77,7 @@ const Navbar = () => {
         </Grid>
         <Grid item>
           <Grid container alignItems="center">
-            {isLoggedIn && (
+            {isLoggedIn !== "true" && (
               <Grid item>
                 <img
                   src={loginIcon}
@@ -84,9 +87,23 @@ const Navbar = () => {
               </Grid>
             )}
             <Grid item>
-              {isLoggedIn ? (
-                <Link to="/my-account">
-                  <Typography mr={3}>My Account</Typography>
+              {isLoggedIn === "true" ? (
+                <Link
+                  to={
+                    role === "ADMINISTRATOR"
+                      ? "/admin-panel"
+                      : role === "USER"
+                      ? "/my-account"
+                      : "#"
+                  }
+                >
+                  <Typography mr={3}>
+                    {role === "ADMINISTRATOR"
+                      ? "Admin Panel"
+                      : role === "USER"
+                      ? "My Account"
+                      : ""}
+                  </Typography>
                 </Link>
               ) : (
                 <Link to="/login">
@@ -94,14 +111,14 @@ const Navbar = () => {
                 </Link>
               )}
             </Grid>
-            {!isLoggedIn && (
+            {isLoggedIn !== "true" && (
               <Grid item sx={{ marginLeft: "1.5rem", marginRight: "1.3rem" }}>
                 <Link to="/register">
                   <Typography>Register</Typography>
                 </Link>
               </Grid>
             )}
-            {isLoggedIn && (
+            {isLoggedIn === "true" && (
               <Grid
                 item
                 sx={{ marginRight: "1rem", ":hover": { cursor: "pointer" } }}
@@ -112,22 +129,24 @@ const Navbar = () => {
           </Grid>
         </Grid>
         <Grid item>
-          <Link to="/shopping-cart">
-            <IconButton>
-              <Badge
-                badgeContent={itemsInCart.length}
-                sx={{
-                  color: "white",
-                  "& .BaseBadge-badge": {
-                    backgroundColor: "#FB578E",
-                  },
-                }}
-                showZero
-              >
-                <img src={shoppingCartIcon} alt="shopping-cart" />
-              </Badge>
-            </IconButton>
-          </Link>
+          <Tooltip title={role === "ADMINISTRATOR" ? "Not Allowed" : ""}>
+            <Link to={role === "ADMINISTRATOR" ? "#" : "/shopping-cart"}>
+              <IconButton disabled={role === "ADMINISTRATOR"}>
+                <Badge
+                  badgeContent={itemsInCart.length}
+                  sx={{
+                    color: "white",
+                    "& .BaseBadge-badge": {
+                      backgroundColor: "#FB578E",
+                    },
+                  }}
+                  showZero
+                >
+                  <img src={shoppingCartIcon} alt="shopping-cart" />
+                </Badge>
+              </IconButton>
+            </Link>
+          </Tooltip>
         </Grid>
       </Grid>
       <Grid

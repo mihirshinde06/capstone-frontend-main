@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
 import Brands from "../Home/Brands/Brands";
 import PageHeader from "../../components/PageHeader/PageHeader";

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import Brands from "../Home/Brands/Brands";
 import clock from "../../assets/images/clock.svg";

@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import newsletterBg from "../../../assets/images/newsletter-bg.svg";
 import { Link } from "react-router-dom";

@@ -14,6 +14,15 @@ export type RegisterUserResponse = {
   token: string;
 };
 
+export interface ILoginAdmin {
+  email: string;
+  password: string;
+}
+
+export type LoginAdminResponse = {
+  token: string;
+};
+
 export type LoginUserResponse = {
   token: string;
 };

@@ -156,9 +156,7 @@ const Footer = () => {
             </Typography>
           </Link>
 
-          {isLoggedIn ? (
-            ""
-          ) : (
+          {isLoggedIn === "true" ? null : (
             <>
               <Link to="/register">
                 <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
@@ -168,6 +166,11 @@ const Footer = () => {
               <Link to="/login">
                 <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
                   Login
+                </Typography>
+              </Link>
+              <Link to="/admin-login">
+                <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+                  Admin panel
                 </Typography>
               </Link>
             </>

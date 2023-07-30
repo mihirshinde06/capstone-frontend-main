@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import trendingProduct from "../../../assets/images/trending-product.svg";
 import { formatPrice } from "../../../utils/utils";

@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, Typography, Rating, IconButton, Tooltip } from "@mui/material";
 import zoomIcon from "../../../assets/images/zoom-icon.svg";
 import shoppingCartColorIcon from "../../../assets/images/shopping-cart-color-icon.svg";
@@ -10,6 +9,7 @@ import {
   addItemToCart,
   removeItemFromCart,
 } from "../../../redux/slices/shoppingCartSlice";
+import React from "react";
 
 const ProductsListItem = ({ product }: IProductsListItemProps) => {
   const [open, setOpen] = React.useState(false);

@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import ProductCard from "./ProductCard";
 import { useGetAllProductsQuery } from "../../../react-query/queries/products/products";
