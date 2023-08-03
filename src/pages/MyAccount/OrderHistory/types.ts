@@ -26,3 +26,7 @@ export interface ICancelOrderConfirmationDialogProps {
   handleClose: () => void;
   orderId: string;
 }
+
+export interface IInvoiceProps {
+  orderDetails?: OrderHistoryItem;
+}

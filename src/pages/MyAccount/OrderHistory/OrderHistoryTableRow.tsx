@@ -1,5 +1,5 @@
 import { Grid, Typography, Button } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import { formatOrderId } from "../../../utils/utils";
 import CancelOrderConfirmationDialog from "./CancelOrderConfirmationDialog";
 import OrderDetailsDialog from "./OrderDetailsDialog";
