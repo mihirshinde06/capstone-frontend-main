@@ -96,8 +96,8 @@ const Contact = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <a href="tel:+48786983989">
-                    <Typography>(+48)786983989</Typography>
+                  <a href="tel:+918411893928">
+                    <Typography>(+91)8411893928</Typography>
                   </a>
                   <a href="mailto:comfy.decor@gmail.com">
                     <Typography>comfy.decor@gmail.com</Typography>
@@ -145,8 +145,8 @@ const Contact = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Typography>ul. Unicka, Lublin</Typography>
-                  <Typography>Poland, 20-291</Typography>
+                  <Typography>Shinde Towers, 803</Typography>
+                  <Typography>Pune, 411046</Typography>
                 </Grid>
               </Grid>
             </Grid>

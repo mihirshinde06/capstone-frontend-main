@@ -99,7 +99,7 @@ const Footer = () => {
             Contact Info
           </Typography>
           <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            ul. Unicka, Lublin, Poland
+            Shinde Towers, 803, Pune, India
           </Typography>
         </Grid>
         <Grid item>
