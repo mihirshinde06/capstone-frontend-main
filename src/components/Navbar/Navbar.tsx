@@ -69,8 +69,8 @@ const Navbar = () => {
               />
             </Grid>
             <Grid item>
-              <a href="tel:+48786983989">
-                <Typography>(+48)786983989</Typography>
+              <a href="tel:+918411893928">
+                <Typography>(+91)8411893928</Typography>
               </a>
             </Grid>
           </Grid>
