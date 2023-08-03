@@ -53,9 +53,9 @@ const AboutUs = () => {
             Business, History
           </Typography>
           <Typography sx={{ color: "#8A8FB9" }}>
-            Our shop was setup in 1930 in Lublin way before the world war 2
+            Our shop was setup in 1930 in Pune way before the world war 2
             started. Most of the furtuiner in the concentration camp were made
-            by us and are still in museum in poland.
+            by us and are still in museum in india.
           </Typography>
           <Link to="/contact">
             <Button
@@ -92,7 +92,7 @@ const AboutUs = () => {
           <Offer
             icon={truckIcon}
             title="Free Delivery"
-            subtitle="Free Delivey in Poland"
+            subtitle="Free Delivey in India"
           />
         </Grid>
         <Grid item>
