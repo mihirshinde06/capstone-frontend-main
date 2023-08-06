@@ -1,17 +1,15 @@
 import { Box } from "@mui/material";
 
 import Categories from "./Categories";
-import Price from "./Price";
-import Rating from "./Rating";
 
 const Filters = () => {
   return (
     <>
       <Categories />
       <Box mb={7} />
-      <Price />
+      {/* <Price />
       <Box mb={7} />
-      <Rating />
+      <Rating /> */}
     </>
   );
 };
