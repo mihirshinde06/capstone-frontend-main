@@ -21,7 +21,7 @@ const WhatComfyDecorOffers = () => {
           <Offer
             icon={truckIcon}
             title="Free Delivery"
-            subtitle="Free Delivey in Poland"
+            subtitle="Free Delivey in India"
           />
         </Grid>
         <Grid item>
