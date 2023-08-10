@@ -83,12 +83,12 @@ const FAQ = () => {
               padding: "1rem 0",
             }}
           >
-            Are your prices in Euro (€)?
+            Are your prices in Indian Rupees (₹)?
           </Typography>
           <Typography
             sx={{ fontSize: "1rem", color: "#A1ABCC", lineHeight: "1.875rem" }}
           >
-            All prices are in Euro (€).
+            All prices are in India Rupees (₹).
           </Typography>
         </Grid>
         <FAQForm />
